@@ -13,7 +13,6 @@ window.SITE_CONFIG = {
   phoneDisplay: "+381 60 000 0000",
 
   instagram: "https://www.instagram.com/grandplusorkestar/",
-  city: "Srbija i region",
   // Gradovi i mesta gde bend svira. Prikazuju se na sajtu i pomažu da sajt izlazi na Google-u
   // kada neko traži npr. "bend za svadbu Šabac". TODO: upisati prave gradove.
   serviceAreas: ["Srbija"],

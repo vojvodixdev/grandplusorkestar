@@ -21,7 +21,6 @@
   $$("[data-whatsapp]").forEach(function (a) { a.href = whatsappUrl(); a.target = "_blank"; a.rel = "noopener"; });
   $$("[data-instagram]").forEach(function (a) { a.href = cfg.instagram; });
   $$("[data-phone-display]").forEach(function (el) { el.textContent = cfg.phoneDisplay; });
-  $$("[data-city]").forEach(function (el) { el.textContent = cfg.city; });
   $$("[data-areas]").forEach(function (el) { el.textContent = (cfg.serviceAreas || []).join(", "); });
   $("#year").textContent = new Date().getFullYear();
 
@@ -62,6 +61,14 @@
   window.addEventListener("resize", function () { if (window.innerWidth > 900) setMenu(false); });
   $$("a", links).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
 
+  // Plutajuća dugmad se sklanjaju dok je kalendar na ekranu, jer forma ima svoja dugmad za slanje
+  var floatBtns = $(".float-btns");
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      floatBtns.classList.toggle("away", entries[0].isIntersecting);
+    }, { rootMargin: "-20% 0px -20% 0px" }).observe($("#termini"));
+  }
+
   /* ---------- Video / Instagram ---------- */
   var videos = $("#videos");
   if (cfg.youtubeVideos && cfg.youtubeVideos.length) {
@@ -72,8 +79,9 @@
     // Dok nema YouTube snimaka, upućujemo na Instagram profil
     var handle = "@" + cfg.instagram.replace(/\/+$/, "").split("/").pop();
     videos.innerHTML = '<a class="ig-box" href="' + cfg.instagram + '" target="_blank" rel="noopener">' +
-      '<img src="img/dragan.jpg" alt="" loading="lazy"><img src="img/radovan.jpg" alt="" loading="lazy"><img src="img/uros.jpg" alt="" loading="lazy">' +
-      '<span><strong>' + handle + '</strong>Snimke sa svadbi i proslava redovno kačimo na Instagram.</span></a>';
+      '<span><strong>' + handle + '</strong>Snimke sa svadbi i proslava redovno kačimo na Instagram.</span>' +
+      '<em>Otvori profil →</em></a>';
+    $("#snimci .text-link").hidden = true; // isti link je već u kartici ispod
   }
 
   /* ---------- Kalendar ---------- */

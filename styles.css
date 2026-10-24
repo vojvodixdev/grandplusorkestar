@@ -9,7 +9,7 @@
   --gold-light: #ddbd7f;
   --free: #6fbf8b;
   --busy: #e0877b;
-  --serif: "Cormorant Garamond", Georgia, serif;
+  --serif: "EB Garamond", Georgia, serif;
   --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -24,7 +24,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .muted { color: var(--muted); }
 .small { font-size: .85rem; }
 
-h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.05; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.05; font-variant-numeric: lining-nums; }
 h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
 
 .section { padding: clamp(64px, 9vw, 120px) 0; }
@@ -68,14 +68,17 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
 .hero-strip figcaption { padding: .7rem clamp(8px, 1.2vw, 16px) 0; font-size: .85rem; color: var(--muted); }
 .hero-strip figcaption b { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(1.1rem, 1.8vw, 1.5rem); color: var(--text); line-height: 1.1; }
 
-.hero-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; flex-wrap: wrap; padding: clamp(32px, 5vw, 56px) 0 clamp(48px, 7vw, 88px); }
+.hero-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem 3rem; flex-wrap: wrap; padding: clamp(28px, 4vw, 48px) 0 clamp(32px, 4vw, 56px); border-bottom: 1px solid var(--line); }
 .hero-sub { font-size: 1.12rem; color: var(--muted); max-width: 46ch; }
 
 /* ---------- O bendu ---------- */
 .about { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
 .about-lead { font-family: var(--serif); font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.15; }
-.about-body p { color: var(--muted); margin-bottom: 1.1rem; }
-.lineup { list-style: none; margin-top: 2rem; border-top: 1px solid var(--line); }
+.about-body { margin-top: 1.8rem; }
+.about-body p { color: var(--muted); margin-bottom: 1.1rem; max-width: 60ch; }
+.lineup-title { font-style: italic; font-size: 1.3rem; color: var(--gold); margin-bottom: .8rem; }
+#bend { padding-top: clamp(40px, 5vw, 72px); }
+.lineup { list-style: none; border-top: 1px solid var(--line); }
 .lineup li { display: flex; justify-content: space-between; align-items: baseline; padding: .75rem 0; border-bottom: 1px solid var(--line); }
 .lineup h3 { font-size: 1.5rem; }
 .lineup p { color: var(--gold); font-size: .95rem; }
@@ -89,10 +92,10 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
 /* ---------- Snimci ---------- */
 .videos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 .videos iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: 3px; }
-.ig-box { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.3fr); gap: 3px; align-items: stretch; text-decoration: none; background: var(--card); border: 1px solid var(--line); }
-.ig-box img { width: 100%; height: 260px; object-fit: cover; object-position: 50% 12%; filter: saturate(.85) sepia(.06); }
-.ig-box span { display: flex; flex-direction: column; justify-content: center; padding: 1.4rem 1.8rem; color: var(--muted); }
-.ig-box strong { font-family: var(--serif); font-weight: 500; font-size: 2rem; color: var(--text); line-height: 1.1; margin-bottom: .5rem; }
+.ig-box { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 1.2rem 2rem; flex-wrap: wrap; padding: clamp(24px, 4vw, 44px) 0; text-decoration: none; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ig-box span { color: var(--muted); }
+.ig-box strong { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--text); line-height: 1.1; margin-bottom: .4rem; }
+.ig-box em { font-style: normal; color: var(--gold); white-space: nowrap; }
 .ig-box:hover strong { color: var(--gold); }
 
 /* ---------- Termini ---------- */
@@ -125,7 +128,7 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
 .booking-form { padding: 1.5rem; display: flex; flex-direction: column; gap: .9rem; }
 .selected-date { padding-bottom: .9rem; border-bottom: 1px solid var(--line); }
 .selected-date .label { display: block; font-size: .8rem; color: var(--muted); }
-.selected-date strong { font-family: var(--serif); font-weight: 500; font-size: 1.7rem; }
+.selected-date strong { font-variant-numeric: lining-nums; font-family: var(--serif); font-weight: 500; font-size: 1.7rem; }
 .selected-date.pulse strong { color: var(--gold); }
 .field { display: flex; flex-direction: column; gap: .3rem; flex: 1; min-width: 0; }
 .field-row { display: flex; gap: .9rem; }
@@ -152,7 +155,7 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
 .footer { border-top: 1px solid var(--line); padding: clamp(56px, 8vw, 100px) 0 90px; }
 .footer-call { margin-bottom: clamp(40px, 6vw, 72px); }
 .footer-call p { font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--muted); }
-.footer-phone { font-family: var(--serif); font-size: clamp(2.6rem, 8vw, 6rem); line-height: 1.05; color: var(--gold); text-decoration: none; }
+.footer-phone { font-variant-numeric: lining-nums; font-family: var(--serif); font-size: clamp(2.6rem, 8vw, 6rem); line-height: 1.05; color: var(--gold); text-decoration: none; }
 .footer-phone:hover { color: var(--gold-light); }
 .footer-inner { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 2rem; color: var(--muted); }
 .footer .logo { display: block; color: var(--text); margin-bottom: .4rem; }
@@ -162,9 +165,10 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
 .footer-links a:hover { color: var(--gold); }
 .copy { text-align: center; color: #5e554b; font-size: .8rem; margin-top: 2.5rem; }
 
-.float-btns { position: fixed; right: 14px; bottom: 14px; z-index: 40; display: none; flex-direction: column; gap: 10px; }
-.float { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 4px 14px rgba(0,0,0,.5); }
-.float svg { width: 27px; height: 27px; fill: #fff; }
+.float-btns { position: fixed; right: 12px; bottom: 12px; z-index: 40; display: none; flex-direction: column; gap: 8px; transition: opacity .2s, transform .2s; }
+.float-btns.away { opacity: 0; transform: translateY(12px); pointer-events: none; }
+.float { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+.float svg { width: 24px; height: 24px; fill: #fff; }
 .float.viber { background: #7360f2; } .float.whatsapp { background: #1fa855; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -185,9 +189,6 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
   body.menu-open { overflow: hidden; }
   body.menu-open .float-btns { display: none; }
   .float-btns { display: flex; }
-  .ig-box { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .ig-box img { height: 200px; }
-  .ig-box span { grid-column: 1 / -1; padding: 1.2rem; }
 }
 @media (max-width: 600px) {
   body { font-size: 16px; }
@@ -198,7 +199,6 @@ h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 1.6rem; }
   .hero-strip figcaption { font-size: 0; padding: .45rem 4px 0; }
   .hero-strip figcaption b { font-size: .95rem; }
   .hero-bottom .btn { width: 100%; }
-  .ig-box img { height: 130px; }
   .calendar, .booking-form { padding: 1rem; }
   .cal-grid { gap: 3px; }
   .day { font-size: .85rem; }
