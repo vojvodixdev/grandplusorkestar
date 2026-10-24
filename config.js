@@ -7,10 +7,9 @@ window.SITE_CONFIG = {
   bandName: "Grand Plus Orkestar",
 
   // Broj telefona u međunarodnom formatu, bez "+" i razmaka (koristi se za Viber i WhatsApp)
-  // TODO: upisati pravi broj benda
-  phone: "381600000000",
+  phone: "381655802393",
   // Kako se broj prikazuje na sajtu
-  phoneDisplay: "+381 60 000 0000",
+  phoneDisplay: "+381 65 580 2393",
 
   instagram: "https://www.instagram.com/grandplusorkestar/",
   // Gradovi i mesta gde bend svira. Prikazuju se na sajtu i pomažu da sajt izlazi na Google-u
